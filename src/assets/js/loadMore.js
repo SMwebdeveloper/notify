@@ -1,9 +1,12 @@
 export default function loadMore(res) {
   const messages = [];
 
+  console.log(res);
+  console.log(res.length);
+
   // if > 2
-  if (res.length > 2) {
-    for (let i = 0; i < 2; i++) {
+  if (res.length > 3) {
+    for (let i = 0; i < 3; i++) {
       res[i].main = true;
       messages.push(res[i]);
     }
@@ -11,7 +14,7 @@ export default function loadMore(res) {
     //  back messages
     return messages;
   } else {
-    for (let i = 1; i < res.length; i++) {
+    for (let i = 0; i < res.length; i++) {
       res[i].main = true;
       messages.push(res[i]);
     }
