@@ -7,7 +7,7 @@
                </td>
             </tr>
         </transition-group>
-        <button class="btn-primary">Load More</button>
+        <button @click="loadMore" class="btn-primary">Load More</button>
     </table>
 </template>
 <script>
@@ -16,6 +16,11 @@ export default {
         messages:{
             type:Array,
             required:true
+        }
+    },
+    methods:{
+        loadMore () {
+           this.$store.dispatch('loadMessages').catch(err => {console.log(err);})
         }
     }
 }
@@ -48,6 +53,11 @@ td{
 .btn-primary{
     padding: 8px 20px;
     background: rgb(7, 76, 122);
-    border-radius: ;
+    border-radius: 30px;
+    font-size: 14px;
+    outline: none;
+    color: aliceblue;
+    border: none;
+    margin-top: 20px;
 }
 </style>
