@@ -7,6 +7,7 @@
                </td>
             </tr>
         </transition-group>
+        <button class="btn-primary">Load More</button>
     </table>
 </template>
 <script>
@@ -42,5 +43,11 @@ td{
 .list-enter, .list-leave-to {
     opacity: 0;
     transform: translateY(30px);
+}
+
+.btn-primary{
+    padding: 8px 20px;
+    background: rgb(7, 76, 122);
+    border-radius: ;
 }
 </style>
