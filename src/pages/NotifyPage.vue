@@ -24,7 +24,12 @@
 
           <!-- notify -->
           <div class="notify__content">
-            <notify v-if="!loading" :messages="messages" />
+           
+            <div class="error" v-if="error && !loading">
+              <p>{{error}}</p>
+            </div>
+
+            <notify v-if="!loading && !error" :messages="messages" />
             <h4 v-if="loading">Loading...</h4>
           </div>
         </div>
@@ -43,6 +48,7 @@ export default {
   data() {
     return {
       loading: false,
+      error:null
     };
   },
   computed: {
@@ -79,6 +85,7 @@ export default {
         })
         .catch((error) => {
           console.log(error);
+          this.error = 'Error: NetWork Error'
         })
         .finally(() => (this.loading = false));
     },
@@ -111,7 +118,13 @@ export default {
 }
 
 h4 {
-  margin-top: 20px;
+  margin-top: 80px;
+  font-size: 45px;
+  font-weight: 400;
+}
+
+.error{
+  margin-top: 80px;
   font-size: 25px;
   font-weight: 400;
 }
